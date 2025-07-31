@@ -168,7 +168,8 @@ ai-enhanced-pdf-analyzer/
 
 ### Step 1: Clone Repository
 ```bash
-git clone https://github.com/koushikcruz/ai-enhanced-pdf-analyzer.git
+git clone https://github.com/Koushik1161/ai-enhanced-pdf-analyzer.git
+
 cd ai-enhanced-pdf-analyzer
 ```
 
@@ -473,7 +474,7 @@ The project showcases my ability to build production-ready applications that sol
 
 **Developed by:** Koushik Cruz  
 **Contact:** koushikcruz@gmail.com  
-**GitHub:** https://github.com/koushikcruz/ai-enhanced-pdf-analyzer
+**GitHub:** https://github.com/Koushik1161/ai-enhanced-pdf-analyzer
 
 ---
 
