@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  pdf-analyzer:
+    build: .
+    container_name: ai-pdf-analyzer
+    volumes:
+      - ./input:/app/input:ro           # Read-only mount for input PDFs
+      - ./output:/app/output            # Mount output directory
+      - ./.env:/app/.env:ro             # Read-only environment file
+    environment:
+      - PYTHONPATH=/app
+      - TESSDATA_PREFIX=/usr/share/tesseract-ocr/5/tessdata
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    command: python pdf_analyzer.py /app/input/document.pdf --ai-enhanced --visualize --ocr-math
+    
+  api-server:
+    build: .
+    container_name: ai-pdf-analyzer-api
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./input:/app/input:ro
+      - ./output:/app/output
+      - ./.env:/app/.env:ro
+    environment:
+      - PYTHONPATH=/app
+      - TESSDATA_PREFIX=/usr/share/tesseract-ocr/5/tessdata
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+    command: python api_server.py
+    depends_on:
+      - pdf-analyzer
+
+  # Optional: Redis for caching (future enhancement)
+  redis:
+    image: redis:7-alpine
+    container_name: ai-pdf-analyzer-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+volumes:
+  redis_data:
+
+networks:
+  default:
+    name: ai-pdf-analyzer-network
