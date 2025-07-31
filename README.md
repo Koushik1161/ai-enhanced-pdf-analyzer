@@ -472,7 +472,7 @@ The project showcases my ability to build production-ready applications that sol
 ---
 
 **Developed by:** Koushik Cruz  
-**Contact:** koushikcruz@example.com  
+**Contact:** koushikcruz@gmail.com  
 **GitHub:** https://github.com/koushikcruz/ai-enhanced-pdf-analyzer
 
 ---
