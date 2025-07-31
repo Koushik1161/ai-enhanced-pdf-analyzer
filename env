@@ -1,0 +1,4 @@
+OPENAI_API_KEY=
+DATABASE_URL=postgresql+asyncpg://user:password@localhost/docai
+REDIS_URL=redis://localhost:6379
+SECRET_KEY=doc-ai-secret-key-change-in-production
